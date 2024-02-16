@@ -1,0 +1,27 @@
+.button-container{
+    width: 4.3rem;
+    height: 4o.3rem;
+    display: flex;
+    flex: 1 1;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 3.8rem;
+    background-color: aqua;
+    color: black;
+    border-radius: 2rem;
+    cursor: pointer;
+    user-select: none;
+    margin: 0.5rem 0.5rem;
+}
+.operador{
+    background-color: rgb(10, 140, 10);
+}
+.button-container:hover{
+    background-color: black;
+    color: white;
+}
+.operador:hover{
+    background-color: black;
+    color: white;
+}

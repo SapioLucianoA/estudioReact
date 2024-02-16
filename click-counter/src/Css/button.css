@@ -1,0 +1,24 @@
+button{
+    width: 15.5rem;
+    height: 5.5rem;
+    color: white;
+    font-size: 3rem;
+    font-family: sans-serif, Cambria, Cochin;
+    font-weight: bold;
+    border: 0.2rem solid white;
+    border-radius: 1.5rem;
+    margin: 1.5rem;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: aqua;
+}
+
+.boton-click{
+    background-color: rgb(63, 63, 175);
+    
+}
+.boton-restart{
+    background-color: blueviolet;
+}

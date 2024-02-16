@@ -1,0 +1,15 @@
+.counter{
+    min-width:15rem ;
+    height: 15rem;
+    background-color: #1d1b1d;
+    color: white;
+    font-weight: bold;
+    border: 1rem white solid;
+    border-radius: 1rem;
+    margin: 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+
+}
