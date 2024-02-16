@@ -1,0 +1,75 @@
+.avatar-img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    
+}
+.div-wantToFollow{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    width: 95%;
+    margin-left: 0.7rem;
+}
+.div-userAndBotonFollow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+span {
+    color: rgba(202, 202, 202, 0.737);
+}
+.button-Follow{
+    height: 2rem;
+    width: 4rem;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 750;
+    font-size: 0.75rem;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    color: black;
+
+}
+.p-startFollow{
+    display: block;
+}
+.p-startFollow 
+.button-Follow:hover{
+    transition: 0.2s;
+    transform: scale(1.1,1.1);
+}
+.button-Follow.isfollowing{
+    width: 5rem;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: 0.1rem solid black;
+
+}
+.button-Follow.isfollowing:hover{
+ background-color: rgba(243, 71, 71, 0.145);
+ color: red;
+ transition: 0s;
+ border: 0.1rem solid rgba(243, 71, 71, 0.145);
+ width: 7rem;
+}
+.div-userNameAndAccount{
+    
+    cursor: pointer;
+}
+.p-stopFollow{
+    display: none;
+}
+.button-Follow.isfollowing:hover .p-stopFollow{
+    display: block;
+}
+.button-Follow.isfollowing:hover .p-startFollow{
+    display: none;
+}
