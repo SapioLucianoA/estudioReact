@@ -4,5 +4,8 @@
   },
   "eslintConfig": {
     "extends": "/node_modules/standard/esLintrc.json"
+  },
+  "dependencies": {
+    "vite": "^5.1.3"
   }
 }
