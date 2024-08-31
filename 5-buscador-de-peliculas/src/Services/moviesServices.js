@@ -18,7 +18,7 @@ export const FetchingMovies = async (input) => {
       poster: movie.Poster,
       year: movie.Year
     }));
-  } catch (error) {
+  } catch {
     throw new Error('Hubo un error al buscar las películas, por favor inténtalo en un momento');
   }
 }

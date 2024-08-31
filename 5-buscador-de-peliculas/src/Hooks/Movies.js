@@ -1,29 +1,35 @@
 import { FetchingMovies } from '../Services/moviesServices'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 
-export function useMovies({ input }) {
+export function useMovies({ input, sort }) {
   const [newMovies, setNewMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null)
   const oldSerach = useRef(input);
 
-  const getMovies = async () => {
-    if(input == oldSerach.current)return
-    if(input == '')return
-    try {
-      oldSerach.current = input
-      setLoading(true)
-      setError(null)
-      const movies = await FetchingMovies(input);
-      setNewMovies(movies);
+  const getMovies = useCallback( async ({input}) => {
+      if(input == oldSerach.current)return
+      if(input == '')return
+      try {
+        console.log("render Movies")
+        oldSerach.current = input
+        setLoading(true)
+        setError(null)
+        const movies = await FetchingMovies(input);
+        setNewMovies(movies);
+      }
+      catch (e) {
+        setError(e.message)
+      } finally {
+        setLoading(false)
+      }
     }
-    catch (e) {
-      setError(e.message)
-    } finally {
-      setLoading(false)
-    }
-  }
-  return { movies: newMovies, getMovies, loading, error };
+  , [])   
+
+  const sortedMovies = useMemo(()=>{
+    return sort ?[... newMovies].sort((a,b)=> a.title.localeCompare(b.tittle)) : newMovies;
+  }, [sort, newMovies])
+  return { movies: sortedMovies, getMovies, loading, error };
   
 }
 
