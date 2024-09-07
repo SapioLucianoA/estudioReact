@@ -1,29 +1,57 @@
 import { useId } from "react"
 import '../css/cart.css'
+import { useCart } from "../Hooks/UseCartContext";
+import { HasProduct } from "./productos";
 
 
-export function Cart(){
-const cartCheckboxId = useId();
-return(
-  <>
-  <label className='cart-button' htmlFor={cartCheckboxId}>
-  🛒
-</label>
-<input id={cartCheckboxId} type='checkbox' className="input-cart" />
+function CartItems({ image, price, title, quantity, addTocart, removeProduct }) {
+  return (
+    <li>
+      <img src={image} alt={title} />
+      <div>
+        <strong>${price}</strong>
+      </div>
+      <footer>
+        <button onClick={removeProduct}>❌</button>
+        <small>cantidad: {quantity}</small>
+        <button onClick={addTocart}>➕</button>
+      </footer>
+    </li>
+  );
+}
 
+export function Cart() {
+  const cartCheckboxId = useId();
+  const { clearCart, addTocart, removeProduct, cart } = useCart();
+  const cartHaveProducts = cart.length > 0;
 
-<aside className='cart'>
-  <img src='https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg' alt='iPhone' />
-  <div>
-    <strong>iPhone</strong> - $1499
-  </div>
-  <footer>
-    <button>❌</button>
-    <small>cantidad: 1</small>
-    <button>➕</button>
-  </footer>
-</aside>
-  </>
-)
+  return (
+    <>
+      <label className='cart-button' htmlFor={cartCheckboxId}>
+        🛒
+      </label>
+      <input id={cartCheckboxId} type='checkbox' className="input-cart" />
 
+      <aside className='cart'>
+        <ul className="ul-cart">
+          {
+            cart.map(producto => (
+              <CartItems 
+                key={producto.id} 
+                addTocart={() => addTocart(producto)} 
+                removeProduct={() => removeProduct(producto)} 
+                {...producto} 
+              />
+            ))
+          }
+          {
+            cartHaveProducts ? <button onClick={clearCart}>❌ Clear Cart ❌</button> : ''
+          }
+          
+        </ul>
+
+        
+      </aside>
+    </>
+  );
 }

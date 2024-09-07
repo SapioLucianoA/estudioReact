@@ -1,11 +1,12 @@
 .cart {
   background: #000;
-  display: none;
+  display: none; 
   padding: 32px;
   position: fixed;
-  right: 0px;
-  top: 0px;
-  width: 200px;
+  right: 0;
+  top: 0;
+  width: 300px;
+  overflow-y: auto;
 }
 .input-cart{
   display: none;
@@ -18,7 +19,6 @@
 
 .cart li {
   border-bottom: 1px solid #444;
-  padding-bottom: 16px;
 }
 
 .cart footer {
@@ -30,6 +30,7 @@
 
 .cart footer button {
   padding: 8px;
+
 }
 
 .cart-button {
@@ -56,4 +57,18 @@
 .cart-button ~ input:checked ~ .cart {
   height: 100%;
   display: block;
+}
+.ul-cart{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+.ul-cart >li {
+  height: 175px;
+  width: 100%;
+}
+.ul-cart > li > img{
+  height: 75px;
+  width: 75px;
 }
