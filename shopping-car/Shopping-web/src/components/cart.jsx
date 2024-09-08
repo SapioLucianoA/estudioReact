@@ -1,7 +1,6 @@
 import { useId } from "react"
 import '../css/cart.css'
 import { useCart } from "../Hooks/UseCartContext";
-import { HasProduct } from "./productos";
 
 
 function CartItems({ image, price, title, quantity, addTocart, removeProduct }) {
@@ -23,7 +22,7 @@ function CartItems({ image, price, title, quantity, addTocart, removeProduct }) 
 export function Cart() {
   const cartCheckboxId = useId();
   const { clearCart, addTocart, removeProduct, cart } = useCart();
-  const cartHaveProducts = cart.length > 0;
+  const cartHaveProducts = cart && cart.length > 0;
 
   return (
     <>

@@ -2,7 +2,7 @@ import { useId } from 'react'
 import { useFilterProducts } from '../Hooks/Hooks';
 
 export function Filters() {
-  const { filters, setFilters } = useFilterProducts();
+  const { filters, setFilters, categories } = useFilterProducts();
 
   const filterPriceID = useId();
   const filterCategoryID = useId();
@@ -23,13 +23,16 @@ export function Filters() {
 
   return (
     <section>
-      <div>
-        <label htmlFor={filterCategoryID}>Categorias</label>
-        <select name={filterCategoryID} id={filterCategoryID} aria-placeholder="categorias" onChange={handleChangeCategory}>
-          <option value="all">Todas las categorias</option>
-          <option value="electronics">Electronicos</option>
-          <option value="jewelery">Joyas</option>
 
+      <div>
+      <label htmlFor={filterCategoryID}>Categorias</label>
+      <select name={filterCategoryID} id={filterCategoryID} aria-placeholder="categorias" onChange={handleChangeCategory} >
+        <option id='all' value={'all'} > Todas Las categorias </option>
+        {
+          categories.map((category, index)=>(
+            <option key={index} value={category} >{ category }</option>
+          ))
+        }
         </select>
       </div>
       <div>
