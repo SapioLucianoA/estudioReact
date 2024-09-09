@@ -1,9 +1,10 @@
 import { useId } from "react"
 import '../css/cart.css'
 import { useCart } from "../Hooks/UseCartContext";
+import { TengoAlgoEnELCarrito } from "./productos";
 
 
-function CartItems({ image, price, title, quantity, addTocart, removeProduct }) {
+function CartItems({ image, price, title, quantity, addTocart, removeProduct, clearCart }) {
   return (
     <li>
       <img src={image} alt={title} />
@@ -16,13 +17,15 @@ function CartItems({ image, price, title, quantity, addTocart, removeProduct }) 
         <button onClick={addTocart}>➕</button>
       </footer>
     </li>
+    
   );
 }
 
-export function Cart() {
+export function Cart(  ) {
   const cartCheckboxId = useId();
-  const { clearCart, addTocart, removeProduct, cart } = useCart();
-  const cartHaveProducts = cart && cart.length > 0;
+  const { addTocart, removeProduct, cart, clearCart } = useCart();
+  
+
 
   return (
     <>
@@ -43,9 +46,9 @@ export function Cart() {
               />
             ))
           }
-          {
-            cartHaveProducts ? <button onClick={clearCart}>❌ Clear Cart ❌</button> : ''
-          }
+          
+          <TengoAlgoEnELCarrito cart={ cart } clearCart={clearCart} />
+          
           
         </ul>
 

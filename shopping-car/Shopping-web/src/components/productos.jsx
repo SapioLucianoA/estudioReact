@@ -40,3 +40,13 @@ export function HasProduct({ products }) {
     hasProducts ? <Products products={products} /> : <NoProducts />
   );
 }
+
+export function TengoAlgoEnELCarrito( {clearCart, cart, } ){
+
+  const cartHaveProducts = cart && cart.length > 0;
+
+  return(
+    cartHaveProducts ? <button onClick={clearCart}>❌ Clear Cart ❌</button> : ''
+  )
+
+}
