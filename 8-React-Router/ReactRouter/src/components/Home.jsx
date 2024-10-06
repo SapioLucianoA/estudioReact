@@ -12,7 +12,7 @@ export default function Home(){
       }} />
       
       </div>
-      <Link to={'/about'}>Mas sobre Nosotros</Link>
+      <Link to={'/about'} >Mas sobre Nosotros</Link>
     </>
   )
 }

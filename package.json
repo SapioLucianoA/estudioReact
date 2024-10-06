@@ -6,6 +6,9 @@
     "extends": "/node_modules/standard/esLintrc.json"
   },
   "dependencies": {
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
+    "sort-by": "^1.2.0",
     "vite": "^5.1.3"
   }
 }
